@@ -69,7 +69,7 @@ export const imageMessageController = async (req, res) => {
         const encodedPrompt = encodeURIComponent(prompt);
 
         //construct imagekit AI generation url
-        const generatedImageUrl = `${process.env.IMAGEKIT_URL_ENDPOINT}/ik-genimg-prompt-${encodedPrompt}/chatgpt5/{Date.now()}.png?trw-800,h-800`;
+        const generatedImageUrl = `${process.env.IMAGEKIT_URL_ENDPOINT}/ik-genimg-prompt-${encodedPrompt}/chatgpt5/${Date.now()}.png?tr=w-800,h-800`;
 
         //trigger generation by fetching from Imagekit
         const aiImageResponse = await axios.get(generatedImageUrl, { responseType: 'arraybuffer' })
